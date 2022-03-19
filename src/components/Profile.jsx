@@ -22,6 +22,12 @@ const Profile = () =>{
                 <div>
                     post 3
                 </div>
+                <div>
+                    post 4
+                </div>
+                <div>
+                    post 5
+                </div>
             </div>
         </div>
     </div>
