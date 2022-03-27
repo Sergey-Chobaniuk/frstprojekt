@@ -1,43 +1,40 @@
 import React from "react";
 import d from './Dialogs.module.css';
 import {NavLink} from "react-router-dom";
+const DialogItem =(props)=> {
+    let path = "/dialogs/"+props.id;
+    return(
+        <div className={d.dialog}>
+            <NavLink to={path}>{props.name}</NavLink>
+        </div>
+    )
+}
+const Message =(props)=>{
+    return(
+        <div className={d.message}>
+            {props.message}
+        </div>
+    )
+}
 const Dialogs =(props) => {
     return (
     <div className={d.dialogs}>
         <div className={d.dialogItems}>
-            <div className={d.dialog}>
-                <NavLink to={'/dialogs/1'}>Dimich</NavLink>
-            </div>
-            <div className={d.dialog}>
-                <NavLink to={'/dialogs/2'}>Vasia</NavLink>
-            </div>
-            <div className={d.dialog}>
-                <NavLink to={'/dialogs/3'}>Pitia</NavLink>
-            </div>
-            <div className={d.dialog}>
-                <NavLink to={'/dialogs/4'}>Anna</NavLink>
-            </div>
-            <div className={d.dialog}>
-                <NavLink to={'/dialogs/5'}>Vika</NavLink>
-            </div>
-            <div className={d.dialog}>
-                <NavLink to={'/dialogs/6'}>Lena</NavLink>
-            </div>
+            <DialogItem name={"Dimych"} id={"1"} />
+            <DialogItem name={"Vasia"} id={"2"} />
+            <DialogItem name={"Pitia"} id={"3"} />
+            <DialogItem name={"Anna"} id={"4"} />
+            <DialogItem name={"Vika"} id={"5"} />
+            <DialogItem name={"Lena"} id={"6"} />
         </div>
         <div className={d.messages}>
-            <div className={d.message}>
-                Haw a you?
-            </div>
-            <div className={d.message}>
-                I say to you
-            </div>
-            <div className={d.message}>
-                My name is Dimych
-            </div>
+            <Message message={"Haw a you?"} />
+            <Message message={"I say to you"} />
+            <Message message={"My name is"} />
+            <Message message={"Haw do you do?"} />
+            <Message message={"What?"} />
         </div>
     </div>
-
     )
-
 }
 export default Dialogs;
