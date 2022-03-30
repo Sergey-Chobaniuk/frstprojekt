@@ -1,6 +1,7 @@
 import c from "./Post.module.css";
 import React from "react";
-const Post = (props) =>{
+
+const Post = (props) => {
     console.log(props.message);
     return (
         <div className={c.item}>
