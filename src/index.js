@@ -37,7 +37,7 @@ export default data;
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App posts={posts} dialogs={dialogs} messages={messages} />
   </React.StrictMode>,
   document.getElementById('root')
 );

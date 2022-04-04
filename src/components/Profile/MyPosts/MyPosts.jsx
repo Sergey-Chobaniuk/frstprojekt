@@ -1,10 +1,10 @@
 import React from "react";
 import Post from './Post/Post.jsx';
 import m from './MyPosts.module.css';
-import data from './../../../index.js'
 
-const MyPosts = () => {
-    let postElements = data.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
+
+const MyPosts = (props) => {
+    let postElements = props.posts.map(p => <Post message={p.message} likesCount={p.likesCount}/>);
 
     return (
         <div className={m.myposts}>
