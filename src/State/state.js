@@ -23,9 +23,14 @@ let messages = [
     {id: 5, message: 'What?'},
 ]
 
-const data ={
-    posts: posts,
-    dialogs: dialogs,
-    messages: messages
+const data = {
+    profilePage: {
+        posts: posts
+    },
+    dialogsPage: {
+        dialogs: dialogs,
+        messages: messages
+    }
+
 }
-export default data;
+export {data};

@@ -2,13 +2,13 @@ import React from "react";
 import d from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem.jsx";
 import Message from "./Message/Message.jsx";
-import data from './../../index.js';
+
 
 const Dialogs = (props) => {
 
-    let dialogElements = props.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
+    let dialogElements = props.dialogsData.dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
 
-    let messageElements = props.messages.map(m => <Message message={m.message}/>);
+    let messageElements = props.dialogsData.messages.map(m => <Message message={m.message}/>);
 /*const dialogElements = dialogs.map(d => <DialogItem name={d.name} id={d.id}/>);
 const   messageElements = messages.map(m => <Message message={m.message}/>);*/
     return (

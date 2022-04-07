@@ -3,11 +3,11 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import data from "./State/state";
+import {data} from "./State/state";
 
 ReactDOM.render(
   <React.StrictMode>
-    <App posts={data.posts} dialogs={data.dialogs} messages={data.messages} />
+    <App data={data}  />
   </React.StrictMode>,
   document.getElementById('root')
 );
