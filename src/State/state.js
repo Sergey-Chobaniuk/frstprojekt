@@ -1,3 +1,5 @@
+import {renderEntireTree} from "../index";
+
 let posts = [
     {id:1, message: 'Hi, how are you?', likesCount: 12},
     {id:2, message: 'It\'s my first post', likesCount: 25},
@@ -23,14 +25,37 @@ let messages = [
     {id: 5, message: 'What?'},
 ]
 
+ let addPost = (newPostMessage) => {
+    let newPost = {
+        id: 6,
+        message: newPostMessage,
+        likesCount: 0
+    };
+    posts.push(newPost);
+    alert(newPost.message);
+     renderEntireTree();
+}
+let addMessage = (newDialogMessage) => {
+    let newMessage = {
+        id: 6,
+        message: newDialogMessage,
+    };
+    messages.push(newMessage);
+    alert(newMessage.message);
+    renderEntireTree();
+}
 const data = {
+
     profilePage: {
-        posts: posts
+        posts: posts,
+        addPost
     },
     dialogsPage: {
         dialogs: dialogs,
-        messages: messages
+        messages: messages,
+        addMessage
     }
 
 }
+
 export {data};

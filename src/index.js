@@ -5,12 +5,17 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import {data} from "./State/state";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App data={data}  />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+//data.profilePage.addPost('Atas');
+export let renderEntireTree=() => {
+    ReactDOM.render(
+        <React.StrictMode>
+            <App data={data}  />
+        </React.StrictMode>,
+        document.getElementById('root')
+    );
+};
+
+renderEntireTree();
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
