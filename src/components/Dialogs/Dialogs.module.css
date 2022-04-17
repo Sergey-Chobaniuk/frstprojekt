@@ -1,16 +1,25 @@
 .dialogs{
     display: grid;
     grid-template-columns: 2fr 10fr;
+    grid-template-areas:
+            "a b"
+            "a c";
 }
 .dialogItems{
-padding: 10px;
+    grid-area: a;
+    padding: 10px;
 }
 .dialog {
 padding: 10px;
 }
 .messages {
+    grid-area: b;
 padding: 10px;
 }
 .message {
 padding:  10px;
+}
+.addMessage {
+    grid-area: c;
+padding: 10px;
 }
