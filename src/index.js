@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import {data} from "./State/state";
 
 //data.profilePage.addPost('Atas');
-export let renderEntireTree=() => {
+let renderEntireTree=() => {
     ReactDOM.render(
         <React.StrictMode>
             <App data={data}  />
@@ -14,8 +14,9 @@ export let renderEntireTree=() => {
         document.getElementById('root')
     );
 };
-
 renderEntireTree();
+data.cubscribe(renderEntireTree);
+
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
