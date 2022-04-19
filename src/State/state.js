@@ -32,7 +32,8 @@ let messages = [
         likesCount: 0
     };
     posts.push(newPost);
-    alert(newPost.message);
+     data.profilePage.newPostText='';
+    /*alert(newPost.message);*/
      renderEntireTree();
 }
 let addMessage = (newDialogMessage) => {
@@ -41,19 +42,34 @@ let addMessage = (newDialogMessage) => {
         message: newDialogMessage,
     };
     messages.push(newMessage);
-    alert(newMessage.message);
+    data.dialogsPage.newDialogText='';
+   /* alert(newMessage.message);*/
     renderEntireTree();
 }
+let newOnCheingePostText = (newText) =>{
+    data.profilePage.newPostText=newText;
+    /*alert(newText);*/
+    renderEntireTree();
+}
+let newOnCheingeDialogText = (newText) =>{
+    data.dialogsPage.newDialogText=newText;
+    renderEntireTree();
+}
+
 const data = {
 
     profilePage: {
         posts: posts,
-        addPost
+        addPost,
+        newOnCheingePostText,
+        newPostText: ''
     },
     dialogsPage: {
         dialogs: dialogs,
         messages: messages,
-        addMessage
+        addMessage,
+        newOnCheingeDialogText,
+        newDialogText: ''
     }
 
 }

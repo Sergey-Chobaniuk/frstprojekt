@@ -14,6 +14,11 @@ const Dialogs = (props) => {
         props.dialogsData.addMessage(textNewMessage);
         newMessageElement.current.value = '';
     }
+    let newOnCheingeDialogText = () => {
+        let newDialogText = newMessageElement.current.value;
+        props.dialogsData.newOnCheingeDialogText(newDialogText);
+
+    }
     return (
         <div className={d.dialogs}>
             <div className={d.dialogItems}>
@@ -24,7 +29,7 @@ const Dialogs = (props) => {
             </div>
             <div className={d.addMessage}>
                 <div>
-                    <textarea ref={newMessageElement}></textarea>
+                    <textarea onChange={newOnCheingeDialogText} value={props.dialogsData.newDialogText} ref={newMessageElement}></textarea>
                 </div>
                 <div>
                     <button onClick={addMessage}>Add message</button>
