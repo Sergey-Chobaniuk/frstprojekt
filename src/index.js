@@ -3,19 +3,20 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {data} from "./State/state";
+//import {data} from "./State/state";
+import {store} from "./State/state";
 
 //data.profilePage.addPost('Atas');
 let renderEntireTree=() => {
     ReactDOM.render(
         <React.StrictMode>
-            <App data={data}  />
+            <App data={store}  />
         </React.StrictMode>,
         document.getElementById('root')
     );
 };
 renderEntireTree();
-data.cubscribe(renderEntireTree);
+store.subscribe(renderEntireTree);
 
 
 // If you want to start measuring performance in your app, pass a function

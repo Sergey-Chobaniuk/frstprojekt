@@ -11,7 +11,7 @@ const Dialogs = (props) => {
     let newMessageElement = React.createRef();
     let addMessage = () => {
         let textNewMessage = newMessageElement.current.value;
-        props.dialogsData.addMessage(textNewMessage);
+        props.addMessage(textNewMessage);
         newMessageElement.current.value = '';
     }
     let newOnCheingeDialogText = () => {
