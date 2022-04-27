@@ -91,6 +91,18 @@ export let store = {
                 store._renderEntireTree();
                 /*alert(newText);*/
             },
+            addPost(newPostMessage) {
+                debugger;
+                let newPost = {
+                    id: 6,
+                    message: newPostMessage,
+                    likesCount: 0
+                };
+                store._state.profilePage.posts.push(newPost);
+                store._state.profilePage.newPostText = '';
+                /*alert(newPost.message);*/
+                store._renderEntireTree();
+            },
             newPostText: ''
         },
         dialogsPage: {
@@ -114,33 +126,28 @@ export let store = {
                 store._renderEntireTree();
                 /*alert(newText);*/
             },
+            addMessage(newDialogMessage) {
+                let newMessage = {
+                    id: 6,
+                    message: newDialogMessage,
+                };
+                store._state.dialogsPage.messages.push(newMessage);
+                store._state.dialogsPage.newDialogText = '';
+                store._renderEntireTree();
+            },
             newDialogText: ''
         },
     },
     getState() {
         return this._state;
     },
-    addPost(newPostMessage) {
-        debugger;
-        let newPost = {
-            id: 6,
-            message: newPostMessage,
-            likesCount: 0
-        };
-        store._state.profilePage.posts.push(newPost);
-        store._state.profilePage.newPostText = '';
-        /*alert(newPost.message);*/
-        store._renderEntireTree();
+    dispatch(action) {
+        if(action.type === 'addPost') store._state.profilePage.addPost(action.newPostMessage);
+        else if(action.type === 'newOnCheingePostText') store._state.profilePage.newOnCheingePostText(action.newText);
+        else if(action.type === 'addMessage') store._state.dialogsPage.addMessage(action.newDialogMessage);
+        else if(action.type === 'newOnCheingeDialogText') store._state.dialogsPage.newOnCheingeDialogText(action.newText);
     },
-    addMessage(newDialogMessage) {
-        let newMessage = {
-            id: 6,
-            message: newDialogMessage,
-        };
-        store._state.dialogsPage.messages.push(newMessage);
-        store._state.dialogsPage.newDialogText = '';
-        store._renderEntireTree();
-    },
+
     _renderEntireTree() {},
     subscribe(observer) {
         store._renderEntireTree = observer;

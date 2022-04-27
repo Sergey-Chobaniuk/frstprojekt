@@ -10,12 +10,12 @@ const MyPosts = (props) => {
     let addPost= () =>{
         debugger;
         let text = newPostElement.current.value;
-        props.addPost(text);
+        props.dispatch({type: 'addPost', newPostMessage: text});
         newPostElement.current.value = '';
     };
     let onPostChange = () => {
         let text = newPostElement.current.value;
-        props.newOnCheingePostText(text);
+        props.dispatch({type: 'newOnCheingePostText', newText: text});
         /*alert(text);*/
     };
     return (
@@ -23,7 +23,7 @@ const MyPosts = (props) => {
             <h3>My Post</h3>
             <div>
                 <div>
-                    <textarea onChange={onPostChange} ref={newPostElement} value={props.newPostText}> </textarea>
+                    <textarea onChange={onPostChange} ref={newPostElement} value={props.posts.newPostText}> </textarea>
                 </div>
                 <div>
                     <button onClick={addPost}>Add post</button>

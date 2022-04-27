@@ -10,13 +10,15 @@ const Dialogs = (props) => {
     let messageElements = props.dialogsData.messages.map(m => <Message message={m.message}/>);
     let newMessageElement = React.createRef();
     let addMessage = () => {
+        debugger;
         let textNewMessage = newMessageElement.current.value;
-        props.addMessage(textNewMessage);
+        let action= {type : 'addMessage', newDialogMessage: textNewMessage};
+        props.dispatch(action);
         newMessageElement.current.value = '';
     }
     let newOnCheingeDialogText = () => {
         let newDialogText = newMessageElement.current.value;
-        props.dialogsData.newOnCheingeDialogText(newDialogText);
+        props.dispatch({ type: 'newOnCheingeDialogText', newText: newDialogText});
 
     }
     return (
