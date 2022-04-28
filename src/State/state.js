@@ -74,7 +74,10 @@ const data = {
 }
 export {data};
 */
-
+const ADD_POST = 'addPost';
+const NEW_ON_CHEINGE_POST_TEXT = 'newOnCheingePostText';
+const ADD_MESSAGE = 'addMessage';
+const NEW_ON_CHEINGE_DIALOG_TEXT = 'newOnCheingeDialogText';
 export let store = {
     _state: {
         profilePage: {
@@ -91,11 +94,12 @@ export let store = {
                 store._renderEntireTree();
                 /*alert(newText);*/
             },
-            addPost(newPostMessage) {
+            /*addPost(newPostMessage) {*/
+            addPost() {
                 debugger;
                 let newPost = {
                     id: 6,
-                    message: newPostMessage,
+                    message: this.newPostText,
                     likesCount: 0
                 };
                 store._state.profilePage.posts.push(newPost);
@@ -126,10 +130,10 @@ export let store = {
                 store._renderEntireTree();
                 /*alert(newText);*/
             },
-            addMessage(newDialogMessage) {
+            addMessage() {
                 let newMessage = {
                     id: 6,
-                    message: newDialogMessage,
+                    message: this.newDialogText,
                 };
                 store._state.dialogsPage.messages.push(newMessage);
                 store._state.dialogsPage.newDialogText = '';
@@ -142,10 +146,10 @@ export let store = {
         return this._state;
     },
     dispatch(action) {
-        if(action.type === 'addPost') store._state.profilePage.addPost(action.newPostMessage);
-        else if(action.type === 'newOnCheingePostText') store._state.profilePage.newOnCheingePostText(action.newText);
-        else if(action.type === 'addMessage') store._state.dialogsPage.addMessage(action.newDialogMessage);
-        else if(action.type === 'newOnCheingeDialogText') store._state.dialogsPage.newOnCheingeDialogText(action.newText);
+        if(action.type === ADD_POST) store._state.profilePage.addPost();
+        else if(action.type === NEW_ON_CHEINGE_POST_TEXT) store._state.profilePage.newOnCheingePostText(action.newText);
+        else if(action.type === ADD_MESSAGE) store._state.dialogsPage.addMessage(action.newDialogMessage);
+        else if(action.type === NEW_ON_CHEINGE_DIALOG_TEXT) store._state.dialogsPage.newOnCheingeDialogText(action.newText);
     },
 
     _renderEntireTree() {},
@@ -153,3 +157,9 @@ export let store = {
         store._renderEntireTree = observer;
     }
 }
+
+
+export const addPostActionCreator = () => ({type: ADD_POST});
+export const onPostChangeActionCreator = (text) => ({type: NEW_ON_CHEINGE_POST_TEXT,newText: text });
+export const addMessageActionCreator = () => ({type: ADD_MESSAGE});
+export const newOnCheingeDialogTextActionCreator = (text) => ({type: NEW_ON_CHEINGE_DIALOG_TEXT,newText: text });

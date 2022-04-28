@@ -2,6 +2,7 @@ import React from "react";
 import d from './Dialogs.module.css';
 import DialogItem from "./DialogItem/DialogItem.jsx";
 import Message from "./Message/Message.jsx";
+import {addMessageActionCreator, newOnCheingeDialogTextActionCreator} from "../../State/state";
 
 
 
@@ -11,15 +12,12 @@ const Dialogs = (props) => {
     let newMessageElement = React.createRef();
     let addMessage = () => {
         debugger;
-        let textNewMessage = newMessageElement.current.value;
-        let action= {type : 'addMessage', newDialogMessage: textNewMessage};
-        props.dispatch(action);
-        newMessageElement.current.value = '';
+
+        let action= addMessageActionCreator;
+        props.dispatch(action());
     }
     let newOnCheingeDialogText = () => {
-        let newDialogText = newMessageElement.current.value;
-        props.dispatch({ type: 'newOnCheingeDialogText', newText: newDialogText});
-
+        props.dispatch(newOnCheingeDialogTextActionCreator(newMessageElement.current.value));
     }
     return (
         <div className={d.dialogs}>
